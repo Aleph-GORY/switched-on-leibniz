@@ -1,14 +1,14 @@
 \documentclass[10pt,a4paper,notitlepage]{article}
 %Mise en page
-\usepackage[left=2cm, right=2cm, lines=45, top=0.8in, bottom=0.7in]{geometry}
+\usepackage[left=2cm, right=2cm, top=0.8in, bottom=0.7in]{geometry}
 \usepackage{fancyhdr}
 \usepackage{fancybox}
 \usepackage{pdfpages} 
 \renewcommand{\headrulewidth}{1.5pt}
 \renewcommand{\footrulewidth}{1.5pt}
 \pagestyle{fancy}
-\newcommand\Loadedframemethod{TikZ}
-\usepackage[framemethod=\Loadedframemethod]{mdframed}
+% \newcommand\Loadedframemethod{TikZ}
+\usepackage{mdframed}
 \usepackage{tikz}
 \usetikzlibrary{calc,through,backgrounds}
 \usetikzlibrary{matrix,positioning}
@@ -20,6 +20,7 @@
 \usetikzlibrary{shapes.multipart}
 \usetikzlibrary{decorations.pathmorphing} 
 \usepackage{pgfplots}
+\pgfplotsset{compat=newest}
 \usepackage{physics}
 \usepackage{titletoc}
 \usepackage{mathpazo} 
@@ -30,7 +31,7 @@
 \usepackage{bbding} 
 %\usepackage{minibox} 
 %Ecriture arabe
-\usepackage{mathdesign}
+\usepackage[utopia]{mathdesign}
 \usepackage{bbding} 
 \usepackage{romande}
 
@@ -41,35 +42,6 @@
 \lfoot{Switched on Leibnitz}
 \cfoot{\textbf{$\mathsf{2022}$}}
 \rfoot{\textit{Pr. Armando Cruz (Gory)}}
-%=====================Algo setup
-\algblock{If}{EndIf}
-\algcblock[If]{If}{ElsIf}{EndIf}
-\algcblock{If}{Else}{EndIf}
-\algrenewtext{If}{\textbf{si}}
-\algrenewtext{Else}{\textbf{sinon}}
-\algrenewtext{EndIf}{\textbf{finsi}}
-\algrenewtext{Then}{\textbf{alors}}
-\algrenewtext{While}{\textbf{tant que}}
-\algrenewtext{EndWhile}{\textbf{fin tant que}}
-\algrenewtext{Repeat}{\textbf{r\'ep\'eter}}
-\algrenewtext{Until}{\textbf{jusqu'\`a}}
-\algcblockdefx[Strange]{If}{Eeee}{Oooo}
-[1]{\textbf{Eeee} "#1"}
-{\textbf{Wuuuups\dots}}
-
-\algrenewcommand\algorithmicwhile{\textbf{TantQue}}
-\algrenewcommand\algorithmicdo{\textbf{Faire}}
-\algrenewcommand\algorithmicend{\textbf{Fin}}
-\algrenewcommand\algorithmicrequire{\textbf{Variables}}
-\algrenewcommand\algorithmicensure{\textbf{Constante}}% replace ensure by constante
-\algblock[block]{Begin}{End}
-\newcommand\algo[1]{\textbf{algorithme} #1;}
-\newcommand\vars{\textbf{variables } }
-\newcommand\consts{\textbf{constantes}}
-\algrenewtext{Begin}{\textbf{debut}}
-\algrenewtext{End}{\textbf{fin}}
-%================================
-%================================
 
 \setlength{\parskip}{1cm}
 \setlength{\parindent}{1cm}
@@ -136,7 +108,7 @@ frametitlebelowskip=1pt
 }
 \setlength{\parskip}{0mm}
 \setlength{\parindent}{10mm}
-\mdtheorem[style=theoremstyle]{definition}{\textbf{Exercice}}
+\mdtheorem[style=theoremstyle]{ejercicio}{\textbf{Ejerccicio}}
 %================Liste definition--numList-and alphList=============
 \newcounter{alphListCounter}
 \newenvironment
@@ -164,13 +136,23 @@ frametitlebelowskip=1pt
 \setlength{\parsep}{0cm}}
 }
 {\end{list}}
+
+
+
 %===========================================================
 \begin{document}
 
+%
+% Titulo
+%
 \begin{center}
-    \large{\textbf{Serie N\textdegree 6: \textsc{Structures it\'eratives}}}
+    \large{\textbf{Práctica N\textdegree 0: Números reales}}
 \end{center}
-\begin{definition}[]
+
+%
+% Ejercicios
+%
+\begin{ejercicio}[]
     \hspace{2ex}Ecrire, en utilisant la boucle \textbf{Pour}, les algorithmes qui effecturent les calculs suivants
     \begin{enumerate}
         \item
@@ -182,13 +164,14 @@ frametitlebelowskip=1pt
                   a) P = $\prod_{k=1}^{20} k$ & b) P = $ \prod_{k=1}^{20} k^2$ & c) P = $ \prod_{k=1}^{20} k^k $ \\
               \end{tabular}
     \end{enumerate}
-\end{definition}
-\begin{definition}
+\end{ejercicio}
+
+\begin{ejercicio}
     \hspace{2ex} Ecrire les boucles appropri\'es pour cacluler chacune des expressions ci-desosus\\
     \begin{enumerate}
         \item
               \begin{tabular}{p{7cm}p{7cm}}
-                  a) $s= 1^2-2^2+\dots +19^2-20^2$ & b)$ s = 1^1 - 2^2 + \dots +19^{19} -20^{20}$ \\
+                  a) $s= 1^2-2^2+\dots +197^2-20^2$ & b)$ s = 1^1 - 2^2 + \dots +19^{19} -20^{20}$ \\
               \end{tabular}
         \item
               \begin{tabular}{p{7cm}p{7cm}}
@@ -196,11 +179,12 @@ frametitlebelowskip=1pt
               \end{tabular}
         \item
               \begin{tabular}{p{7cm}p{7cm}}
-                  a) $s= \sqrt{1}+\sqrt{2}+\dots +\sqrt{19}+\sqrt{20}$ & b)$ s = \dfrac{1^1}{\sqrt{2}} + \dfrac{2^2}{\sqrt{3}} + \dots +\dfrac{19^{19}}{\sqrt{20}}$ \\
+                  a) $s= \sqrt{1}+\sqrt{2}+\dots +\sqrt{19}+\sqrt{20}$ & b)$ s = \dfrac{1^1}{\sqrt{2}} + \dfrac{2^2}{\sqrt{53}} + \dots +\dfrac{19^{19}}{\sqrt{20}}$ \\
               \end{tabular}
     \end{enumerate}
-\end{definition}
-\begin{definition}[]
+\end{ejercicio}
+
+\begin{ejercicio}[]
     \begin{minipage}{0.7\textwidth}
         \hspace{2ex}Ex\'ecuter l'algorithme ci-contre avec les entr\'ee de la ligne 1 du tableau ci-dessous et compl\'eter la ligne 2.\\[2ex]
         \begin{tabular}{c|c|c|c|c|c|c}
@@ -231,9 +215,9 @@ frametitlebelowskip=1pt
             \end{algorithmic}
         \end{scriptsize}
     \end{minipage}
-\end{definition}
+\end{ejercicio}
 
-\begin{definition}[]
+\begin{ejercicio}[]
     \begin{minipage}{0.7\textwidth}
         Ex\'ecuter l'algorithme ci-contre avec les entr\'ees $a$ et $b$ des lignes 1 et 2 du tableau ci-dessous et compl\'ter la ligne 3.\\[3ex]
         \begin{tabular}{c|c|c|c|c|c|c}
@@ -275,16 +259,16 @@ frametitlebelowskip=1pt
             \end{algorithmic}
         \end{scriptsize}
     \end{minipage}
-\end{definition}
+\end{ejercicio}
 
-\begin{definition}[]
+\begin{ejercicio}[]
     \begin{numList}
         \item Ecrire, en utilisant une structure de contr\^ole de votre choix, un algorithme qui calcule le produit suivant
         $$f = \prod_{k=1}^{k=n}k = k!= 1 \times 2 \times \dots \times (n-1) \times n $$
         \item Ecrire, en utilisant une structure de contr\^ole de votre choix, un algorithme qui calcule la somme
         $$s = \sum_{q=1}^{q=M}q! = 1! + 2! + \dots + M!$$
     \end{numList}
-\end{definition}
+\end{ejercicio}
 
 
 
